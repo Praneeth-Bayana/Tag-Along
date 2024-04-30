@@ -1,0 +1,76 @@
+@HOST = 127.0.0.1:8000
+@JWT_TOKEN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEwMzA2MTQzLCJpYXQiOjE3MTAzMDM5MDksImp0aSI6Ijk3NTY3OTA1ZDFkNDQwMTg5ZTQzYmIzMjkwMjhmMDgwIiwidXNlcl9pZCI6NH0.9LYlMN7PncK52RU1PhMBNKVXKazofTaqGykMhMq9ilc
+@REFRESH = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMDM5MDMwOSwiaWF0IjoxNzEwMzAzOTA5LCJqdGkiOiIzNzcxMDY2NWE2YWU0ZjM5OTg3MWIxMDgyODhhODhiYyIsInVzZXJfaWQiOjR9.lVehM9vrvAoAjo7tYxhmiJs1Cwi7g06Omi4L7zyns_I
+
+// Login to the Tag Along
+POST http://{{HOST}}/api/loginuser/ HTTP/1.1
+Content-Type: application/json
+
+{
+//  "username": "example_user11",
+  "email": "example12@example.com",
+  "password": "example12_password"
+}
+
+###
+// Refresh Token
+POST http://{{HOST}}/api/refresh-token/ HTTP/1.1
+Content-Type: application/json
+
+{
+  "refresh": "{{REFRESH}}"
+}
+
+###
+// Getting the Profile of current User
+GET http://{{HOST}}/api/getuserprofile/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{JWT_TOKEN}}
+
+###
+// Get the list of Rides
+GET http://{{HOST}}/api/rides/rides_list/
+Content-Type: application/json
+Authorization: Bearer {{JWT_TOKEN}}
+
+###
+// Request for a Ride
+POST http://{{HOST}}/api/rides/ride_requests/create/
+Content-Type: application/json
+Authorization: Bearer {{JWT_TOKEN}}
+
+{
+    "ride": 3,
+    "seats_requested":2,
+    "request_status":"Pending"
+}
+
+###
+// Update Request for a Ride
+PATCH  http://{{HOST}}/api/rides/ride_requests/update/
+Content-Type: application/json
+Authorization: Bearer {{JWT_TOKEN}}
+
+{
+    "ride_request_id": 3,
+    "update":{
+      "seats_requested":3
+    }
+}
+
+###
+// Cancel or Withdraw Request for a Ride
+PATCH  http://{{HOST}}/api/rides/ride_requests/withdraw/
+Content-Type: application/json
+Authorization: Bearer {{JWT_TOKEN}}
+
+{
+    "ride_request_id": 3,
+    "update":{
+      "request_status":"Cancelled"
+    }
+}
+
+
+
+
