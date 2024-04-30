@@ -1,0 +1,220 @@
+
+#root {
+  
+  padding: 0rem;
+  text-align: center;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  flex: 1; /* Take up remaining space */
+}
+
+.sub-container {
+  background: #5A9ED7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Centers children horizontally */
+  height: 100vh;
+  flex: 1;
+  padding-left: 10%;
+  padding-right: 10%;
+  
+}
+
+.sub-container h1{
+  color: #053973;
+}
+
+.card{
+  background-color: white;
+  
+}
+#sidebar{
+  background-color: #053973;
+  color:white
+}
+.dark-blue-back{
+  background-color: #01112A;
+  color:white
+}
+
+.iceblue-back{
+  background-color: #219EBC;
+  color: white;
+}
+
+.secondaryblue-back{
+  background-color: #e4e4ef;
+  color: #053973;
+}
+.secondaryblue-back:hover{
+  background-color: #cbcbd1;
+  color: #053973;
+}
+
+.orange-back{
+  background-color: #FB8401;
+  color: white;
+}
+
+.city-background{
+  background-image: url('/public/city_background.jpg');
+  
+}
+.background-driving{
+  background-image: url('/public/driving_cover.jpg');
+  background-position: 100%;
+}
+.walking-students{
+  background-image: url('/public/walking_students.jpg');
+}
+.silhouette{
+  width: 100%;
+  height: 100%;
+}
+.wavy-image-back{
+  background-image: url('https://i.pinimg.com/736x/09/e2/b2/09e2b2c40b2cb10ace68b65367b14644.jpg');
+}
+.white-wavy-back{
+  background-image:url('https://img.freepik.com/free-vector/paper-style-white-monochrome-background_52683-66443.jpg')
+}
+.translucent{
+  opacity: 0.5;
+}
+.transparent-bg{
+  background-color: transparent;
+}
+
+.inline{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Responsive grid layout */
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 1%;
+  place-items: center;
+  position:relative
+}
+
+.inline-200{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid layout */
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  place-items: center;
+}
+
+.inline-500{
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+}
+
+.responsive-inline{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  margin: 2% 0%;
+}
+@media screen and (max-width: 900px){
+  .responsive-inline{
+    display: block;
+  }
+}
+
+.grid-item{
+  text-align: center;
+  place-items: center;
+  max-width: 80%;
+}
+.center{
+  margin: auto;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+button {
+  display: block; /* The button appears on a new line */
+  width: 100%; /* Full width of the container */
+  margin-bottom: 1rem; /* Space below the button */
+  padding: 10px; /* Padding inside the button */
+  background-color: #17477F; /* Button color */
+  color: white; /* Text color inside the button */
+  border: none; /* No border */
+  border-radius: 4px; /* Rounded corners for the button */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+button:hover {
+  background-color: #15395b; /* Darker shade for hover effect */
+}
+
+.form-box {
+  border-radius: 30px; /* Rounded corners for the box */
+  padding: 2rem; /* Space inside the box */
+  max-width: 400px; /* Max width of the form box */
+  margin: auto; /* Center the box in the parent container */
+  background-color: #ffffff; /* Background color for the form box */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow to the box */
+  width: 80%;
+}
+
+.iconbutton{
+  display: flex;
+  border: 1px solid rgb(255, 255, 255);
+  padding: 5%;
+  border-radius: 5px;
+  background-color: white;
+  width: fit-content;
+  transition: background 0.3s ease;
+  align-items: center;
+}
+
+.deleteicon{
+  color: red;
+  border: 1px solid red;
+}
+
+.deleteicon:hover{
+  background-color: red;
+  color: white;
+  border: 1px solid red;
+}
+
+.editicon{
+  color: rgb(6, 34, 158);
+  border: 1px solid rgb(6, 34, 158);
+}
+
+.editicon:hover{
+  background-color: rgb(6, 34, 158);
+  color: white;
+  border: 1px solid rgb(6, 34, 158);
+}
+
+
+.pac-container {
+  background-color: #FFF;
+  z-index: 2001;
+  position: fixed;
+  display: inline-block;
+}
+
+.modal{
+  z-index: 2000;
+}
+.modal-backdrop{
+  z-index: 1000;
+}
+
+#fromField, #toField{
+  width: 100%;
+}

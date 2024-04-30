@@ -1,0 +1,76 @@
+.ride-list-view {
+    
+    padding: 20px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 3px rgba(0, 107, 143, 0.5);
+    transition: box-shadow 0.4s ease;
+    font-size: clamp(12px, 5vw, 24px);
+    margin-bottom: 2%;
+    background-color: white;
+}
+.ride-list-view h5{
+    font-size: 1rem;
+
+}
+.from, .to{
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.duration{
+    width: 50%;
+}
+
+.ridelist-body{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.fromto{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+}
+.seatrate{
+    display: flex;
+    justify-content: space-around;
+    width: 35%;
+}
+.center{
+    text-align: center;
+    
+}
+
+.ride-list-view:hover{
+    box-shadow: 0 0 8px rgba(9, 54, 68, 0.5);
+}
+
+
+@media screen and (max-width: 1125px) {
+    .ridelist-body {
+        display: block;
+    }
+    .fromto{
+        width: 100%;
+        margin-bottom: 10%;
+    }
+    .driver-car{
+        width: 100%;
+        justify-content: space-around;
+        margin-bottom: 10%;
+    }
+    .seatrate{
+        width: 100%;
+        
+        margin-bottom: 2%;
+    }
+    .lowflex{
+        display: flex;
+        justify-content: center;
+    }
+}
