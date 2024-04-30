@@ -1,0 +1,138 @@
+//@HOST = https://tagalong-backend-210589d74651.herokuapp.com
+@HOST = http://127.0.0.1:8000
+@REFRESH = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMjM1MTIwNywiaWF0IjoxNzEyMjY0ODA3LCJqdGkiOiJlZDdkZTUyMTRjNmE0YmU2ODJhYjNmNzRhOWJlMWNiMyIsInVzZXJfaWQiOjN9.6Y04BaPtyE3CCG1uZBNVYOhwBd5YFN5A0QAs4LPEnFA
+@JWT_TOKEN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEzMTM2NzcyLCJpYXQiOjE3MTMxMzU4NzIsImp0aSI6IjhkMGU1MDk1ZTRhZTRkOGU5YWI1MGY2MDZiNTQxZjc3IiwidXNlcl9pZCI6NH0.nTkP-HxD4uHQx9tUU55dCHQjhM3aq50NOjndFSkCKWI
+
+
+POST {{HOST}}/api/createuser/ HTTP/1.1
+Content-Type: application/json
+ 
+{
+//  "username": "example_user11",
+  "email": "example13@example.com",
+  "password": "example13_password",
+  "username":"example13"
+}
+
+###
+// Login to the Tag Along
+POST {{HOST}}/api/loginuser/ HTTP/1.1
+Content-Type: application/json
+ 
+{
+//  "username": "example_user11",
+  "email": "example11@example.com",
+  "password": "example11_password"
+}
+
+###
+// Refresh Token 
+POST {{HOST}}/api/refresh-token/ HTTP/1.1
+Content-Type: application/json
+
+###
+// Getting the Profile of current User
+GET {{HOST}}/api/getuserprofile/ HTTP/1.1
+Content-Type: application/json
+
+###
+// Adding a Car
+POST {{HOST}}/api/rides/add_vehicle/ HTTP/1.1  
+Content-Type: application/json
+
+{
+  "model": "Toyota Van",
+  "license_plate": "ABC126",
+  "seats_available": 4,
+  "mileage": 50000,
+  "color": "Black",
+  "car_type": "Sedan"
+}
+
+###
+//Creating a new Ride
+POST {{HOST}}/api/rides/create/ HTTP/1.1
+Content-Type: application/json
+
+{
+  "car": 7,
+  "starting_point": "University Campus",
+  "destination": "City Center",
+  "date": "2024-03-01",
+  "starttime": "2024-03-01T09:00:00",
+  "endtime": "2024-03-01T10:00:00",
+  "price_per_head": 25.50,
+  "available_seats": 3,
+  "ride_status": "Scheduled",
+  "passengers": []
+}
+
+###
+//Getting rides offered By me
+GET http://{{HOST}}/api/rides/myrides_list/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{JWT_TOKEN}}
+
+###
+//Updating an Existing Ride
+PATCH http://{{HOST}}/api/rides/update/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{JWT_TOKEN}}
+
+{ 
+  "ride_id":2,
+  "update":{
+    "fuel_price": 50.50
+  }
+}
+
+###
+//Deleting/Cancelling a ride
+PATCH http://{{HOST}}/api/rides/update/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{JWT_TOKEN}}
+
+{ 
+  "ride_id":2,
+  "update":{
+    "ride_status": "cancelled"
+  }
+}
+
+###
+//Getting rides requests for a ride
+GET http://{{HOST}}/api/rides/ride_requests/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{JWT_TOKEN}}
+
+{
+  "ride":2
+}
+
+###
+//Accepting rides requests for a ride
+POST http://{{HOST}}/api/rides/ride_requests/accept/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{JWT_TOKEN}}
+
+{
+  "id":1
+}
+
+
+
+###
+// Decline Request for a Ride
+PATCH  http://{{HOST}}/api/rides/ride_requests/decline/
+Content-Type: application/json
+Authorization: Bearer {{JWT_TOKEN}}
+
+{
+    "ride_request_id": 3,
+    "update":{
+      "request_status":"Declined"
+    }
+}
+
+
+
